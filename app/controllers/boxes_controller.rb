@@ -15,6 +15,21 @@ class BoxesController < ApplicationController
     end
   end
 
+  def show
+    @box = Box.find(params[:id])
+  end
+
+  def edit
+    @box = Box.find(params[:id])
+  end
+
+  def update
+    @box = Box.find(params[:id])
+    @box.update_attributes!(box_params)
+
+    redirect_to boxes_path
+  end
+
   private
   def box_params
     params.require(:box).permit(:size, :color)

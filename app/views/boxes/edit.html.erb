@@ -8,14 +8,6 @@
     <%= f.text_field :color %>
   </p>
   <p>
-    <%= f.submit 'Add box' %>
+    <%= f.submit 'Update box' %>
   </p>
-<% end %>
-
-<%= @boxes.each do |box| %>
-<ul>
-  <li>
-    <%= link_to "#{box.size}", box_path(box) %>, <%= box.color %>
-  </li>
-</ul>
 <% end %>
