@@ -1,0 +1,21 @@
+<%= form_for @box do |f| %>
+  <p>
+    <%= f.label :size %>
+    <%= f.text_field :size %>
+  </p>
+  <p>
+    <%= f.label :color %>
+    <%= f.text_field :color %>
+  </p>
+  <p>
+    <%= f.submit 'Add box' %>
+  </p>
+<% end %>
+
+<%= @boxes.each do |box| %>
+<ul>
+  <li>
+    <%= box.size %>, <%= box.color %>
+  </li>
+</ul>
+<% end %>
