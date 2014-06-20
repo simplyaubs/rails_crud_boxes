@@ -34,4 +34,22 @@ feature 'CRUD boxes' do
     expect(page).to_not have_content 'Small'
     expect(page).to_not have_content 'Purple'
   end
+
+  scenario 'User can delete a box from list' do
+    visit '/'
+    expect(page).to have_content 'Welcome'
+    click_on 'Add a box'
+    fill_in 'Size', with: 'Small'
+    fill_in 'Color', with: 'Purple'
+    click_on 'Add box'
+    expect(page).to have_content 'Small'
+    expect(page).to have_content 'Purple'
+    click_on 'Small'
+    expect(page).to have_content 'Small'
+    expect(page).to have_content 'Purple'
+    click_on 'Delete'
+    expect(page).to_not have_content 'Small'
+    expect(page).to_not have_content 'Purple'
+  end
+
 end

@@ -30,6 +30,12 @@ class BoxesController < ApplicationController
     redirect_to boxes_path
   end
 
+  def destroy
+    @box = Box.find(params[:id]).delete
+
+    redirect_to boxes_path
+  end
+
   private
   def box_params
     params.require(:box).permit(:size, :color)
